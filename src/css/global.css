@@ -35,8 +35,8 @@ body, html {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45); /* smooth overlay for readability */
-    opacity: 0;
+    background: rgba(0, 0, 0, 0.4); /* darker overlay */
+    opacity: 1; /* make overlay visible */
 }
 
 .card {
@@ -79,13 +79,53 @@ body, html {
 }
 /* Primary */
 .btn.primary {
-    background: #AFCD91;
+    position: relative;
+    padding: 12px 24px;
+    border-radius: 18px;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.15); /* glass effect */
     color: white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+    background-clip: padding-box; /* ensures hover gradient border works */
+    z-index: 0;
+    overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.btn.primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 4px; /* thickness of gradient border */
+    border-radius: 18px;
+    background: linear-gradient(
+        90deg,
+        #A18872 0%,
+        #C3A582 20%,
+        #AFCD91 45%,
+        #AAD296 65%,
+        #C3D269 80%,
+        #FAC80A 100%
+    );
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.5s ease;
+    z-index: -1;
+}
+
+.btn.primary:hover::before {
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 .btn.primary:hover {
-    background: #70945e;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    border-color: transparent;
 }
 
 .btn.gradient {
