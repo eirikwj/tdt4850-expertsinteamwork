@@ -1,34 +1,82 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", sans-serif;
 }
 
 body {
-    background-color: #e5e5e5;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    background: url("../images/single_parent_gemini.jpg") no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Blur overlay */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(20px);
+    background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.3)
+    );
+}
+
+/* Glass container */
 .container {
-    background: #f3f3f3;
-    width: 800px;
-    padding: 40px;
     position: relative;
+    width: 900px;
+    padding: 50px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    color: white;
 }
 
 h1 {
     font-size: 32px;
-    margin-bottom: 10px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.progress {
-    font-size: 18px;
-    margin-bottom: 20px;
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+        90deg,
+        #A18872 0%,
+        #C3A582 20%,
+        #AFCD91 45%,
+        #AAD296 65%,
+        #C3D269 80%,
+        #FAC80A 100%
+    );
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.progress-text {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 30px;
 }
 
 .content {
@@ -40,69 +88,124 @@ h1 {
 }
 
 .image-box {
-    width: 250px;
-    height: 200px;
-    border: 2px solid #333;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 .image-box img {
-    max-width: -webkit-fill-available;
-    max-height: 80%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .next-btn {
     position: absolute;
     right: 0;
-    padding: 6px 12px;
-    background-color: #222;
+    padding: 12px 24px;
+    border-radius: 18px; /* same as .answer buttons */
+    border: 2px solid transparent;
+    background: rgba(255,255,255,0.15);
     color: white;
-    border: none;
     cursor: pointer;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+    background-clip: padding-box; /* ensures border hover effect works nicely */
+    z-index: 0;
+}
+
+.next-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 3px; /* thickness of gradient border */
+    border-radius: 18px; /* match initial border radius */
+    background: linear-gradient(
+        90deg,
+        #A18872 0%,
+        #C3A582 20%,
+        #AFCD91 45%,
+        #AAD296 65%,
+        #C3D269 80%,
+        #FAC80A 100%
+    );
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.5s ease;
+    z-index: -1;
+}
+
+
+.next-btn:hover::before {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.next-btn:hover {
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+.next-btn.unclickable {
+    cursor: not-allowed;           /* show disabled cursor */
+    opacity: 0.5;                  /* fade it to indicate inactive */
+    pointer-events: none;           /* prevent clicking */
+    transform: none;                /* remove hover translate */
+    background: rgba(255,255,255,0.1); /* slightly darker/faded glass look */
+    border: 2px solid rgba(255,255,255,0.2); /* static border */
+}
+
+/* Disable the gradient hover pseudo-element */
+.next-btn.unclickable::before {
+    opacity: 0 !important;
+    transform: none !important;
 }
 
 .answers {
     display: flex;
-    gap: 20px;              /* More space between buttons */
-    margin-top: 30px;
+    gap: 25px;
 }
 
 .answer {
     flex: 1;
-    padding: 25px;
-    font-size: 20px;
-    border: 2px solid black;
-    background-color: white;   /* Neutral default */
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.15);
+    color: white;
     cursor: pointer;
-    transition: all 0.3s ease; /* Smooth animation */
-    border-radius: 5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-/* Hover effect */
 .answer:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-}
-
-/* Click animation */
-.answer:active {
-    transform: scale(0.97);
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.25);
 }
 
 .answer.correct {
-    background-color: #39b54a;
-    color: white;
+    background: rgba(57,181,74,0.8);
+    cursor: default;
+}
+
+
+.answer.chosen {
+    border: solid 3px black;
+    cursor: default;
 }
 
 .answer.wrong {
-    background-color: #ff3b3b;
-    color: white;
+    background: rgba(255,59,59,0.8);
+    cursor: default;
 }
 
-.answer:hover {
-    opacity: 0.9;
+.answer.wrong, .answer.answer.correct, .answer.chosen :hover {
+    transform: translateY(-2px);
 }

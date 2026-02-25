@@ -1,6 +1,7 @@
+const progressBar = document.getElementById("progressBar");
 const questionText = document.getElementById("questionText");
 const quizImage = document.getElementById("quizImage");
-const progressText = document.getElementById("progress");
+const progressText = document.getElementById("progressText");
 const nextBtn = document.getElementById("nextBtn");
 const answerButtons = document.querySelectorAll(".answer");
 
@@ -32,15 +33,20 @@ const questions = [
 function loadQuestion() {
   answered = false;
 
+  nextBtn.disabled = true;
   const q = questions[currentQuestion];
 
   questionText.textContent = q.question;
   quizImage.src = q.image;
-  progressText.textContent = `${currentQuestion + 1}/${questions.length}`;
+
+  progressText.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+  const progressPercent = ((currentQuestion + 1) / questions.length) * 100;
+  progressBar.style.width = progressPercent + "%";
 
   answerButtons.forEach((btn, index) => {
     btn.textContent = q.answers[index];
-    btn.classList.remove("correct", "wrong");
+    btn.classList.remove("correct", "wrong", "chosen");
+    nextBtn.classList.add("unclickable");
     btn.disabled = false;
   });
 }
@@ -50,10 +56,17 @@ answerButtons.forEach((button, index) => {
     if (answered) return;
     answered = true;
 
+    nextBtn.classList.remove("unclickable");
+
     const correctIndex = questions[currentQuestion].correctIndex;
 
     answerButtons.forEach((btn, i) => {
       btn.disabled = true;
+      nextBtn.disabled = false;
+
+      if (i == index) {
+        btn.classList.add("chosen");
+      }
 
       if (i === correctIndex) {
         btn.classList.add("correct");
@@ -65,31 +78,30 @@ answerButtons.forEach((button, index) => {
     if (index === correctIndex) {
       score++;
     }
+
+    // Update progress bar immediately after answering
+    const progressPercent = ((currentQuestion + 1) / questions.length) * 100;
+    progressBar.style.width = progressPercent + "%";
   });
 });
 
 nextBtn.addEventListener("click", () => {
   if (!answered) {
     alert("Please select an answer");
-    console.log("ewuewuiroi");
-
     return;
   }
 
   currentQuestion++;
 
   if (currentQuestion < questions.length) {
-    console.log("test load");
-
     loadQuestion();
   } else {
-    console.log("Restults");
-
     showResults();
   }
 });
 
 function showResults() {
+  progressBar.style.width = "100%";
   window.location.href = `/src/pages/results.html?score=${score}&total=${questions.length}`;
 }
 
