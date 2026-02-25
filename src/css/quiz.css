@@ -79,6 +79,7 @@ h1 {
     background-color: white;   /* Neutral default */
     cursor: pointer;
     transition: all 0.3s ease; /* Smooth animation */
+    border-radius: 5px;
 }
 
 /* Hover effect */
