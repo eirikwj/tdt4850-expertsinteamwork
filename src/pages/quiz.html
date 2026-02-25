@@ -8,21 +8,22 @@
 <body>
 
     <div class="container">
-        <h1>Which LLM Generated This Image?</h1>
-        <div class="progress">1/5</div>
+
+        <h1 id="questionText"></h1>
+        <div class="progress" id="progress"></div>
 
         <div class="content">
             <div class="image-box">
-                <img src="../images/greedy_person_gemini.jpg" alt="Generated Image">
+                <img id="quizImage" src="" alt="Generated Image">
             </div>
 
             <button class="next-btn" id="nextBtn">Next &gt;</button>
         </div>
 
         <div class="answers">
-            <button class="answer">Grok</button>
-            <button class="answer">Meta</button>
-            <button class="answer">ChatGPT</button>
+            <button class="answer"></button>
+            <button class="answer"></button>
+            <button class="answer"></button>
         </div>
     </div>
 

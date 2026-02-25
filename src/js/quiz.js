@@ -1,22 +1,93 @@
-const answers = document.querySelectorAll('.answer');
+const questionText = document.getElementById("questionText");
+const quizImage = document.getElementById("quizImage");
+const progressText = document.getElementById("progress");
+const nextBtn = document.getElementById("nextBtn");
+const answerButtons = document.querySelectorAll(".answer");
 
-answers.forEach(button => {
-    button.addEventListener('click', () => {
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
 
-        if (document.querySelector('.answer.correct, .answer.wrong')) return;
+const questions = [
+    {
+        question: "Which LLM generated this greedy character image?",
+        image: "../images/greedy_person_gemini.jpg",
+        answers: ["Grok", "Meta", "ChatGPT"],
+        correctIndex: 0
+    },
+    {
+        question: "Which LLM generated this unhappy family image?",
+        image: "../images/unhappy_family_gemini.png",
+        answers: ["Meta", "ChatGPT", "Grok"],
+        correctIndex: 0
+    },
+    {
+        question: "Which LLM generated this single parent image?",
+        image: "../images/single_parent_gemini.jpg",
+        answers: ["ChatGPT", "Meta", "Grok"],
+        correctIndex: 0
+    }
+];
 
-        answers.forEach(btn => {
-            if (btn.textContent === "Grok") {
+function loadQuestion() {
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    questionText.textContent = q.question;
+    quizImage.src = q.image;
+    progressText.textContent = `${currentQuestion + 1}/${questions.length}`;
+
+    answerButtons.forEach((btn, index) => {
+        btn.textContent = q.answers[index];
+        btn.classList.remove("correct", "wrong");
+        btn.disabled = false;
+    });
+}
+
+answerButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+
+        if (answered) return;
+        answered = true;
+
+        const correctIndex = questions[currentQuestion].correctIndex;
+
+        answerButtons.forEach((btn, i) => {
+            btn.disabled = true;
+
+            if (i === correctIndex) {
                 btn.classList.add("correct");
             } else {
                 btn.classList.add("wrong");
             }
         });
 
-        // Add small animation pulse to clicked button
-        button.style.transform = "scale(1.05)";
-        setTimeout(() => {
-            button.style.transform = "scale(1)";
-        }, 200);
+        if (index === correctIndex) {
+            score++;
+        }
     });
 });
+
+nextBtn.addEventListener("click", () => {
+
+    if (!answered) return;
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        loadQuestion();
+    } else {
+        showResults();
+    }
+});
+
+function showResults() {
+    document.querySelector(".container").innerHTML = `
+        <h1>Quiz Complete!</h1>
+        <h2>Your Score: ${score} / ${questions.length}</h2>
+        <button onclick="location.reload()">Restart</button>
+    `;
+}
+
+loadQuestion();
