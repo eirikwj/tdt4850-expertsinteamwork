@@ -1,11 +1,24 @@
-// Dynamically update score
-const score = 42; // replace with actual logic
+// Get score from URL
+const params = new URLSearchParams(window.location.search);
+const score = params.get("score");
+const total = params.get("total");
+
+// Update score text
+const scoreHeader = document.getElementById("score-header");
+
+if (score !== null && total !== null) {
+  scoreHeader.textContent = `You got ${score} out of ${total} points`;
+} else {
+  scoreHeader.textContent = "No score found.";
+}
+
 document.getElementById("score-header").textContent = `You got ${score} points`;
 
 // Buttons (currently placeholders)
 document.getElementById("retry-btn").addEventListener("click", () => {
-  alert("Retry Quiz clicked!");
+  window.location.href = "../index.html";
 });
+
 document.getElementById("ainclusion-btn").addEventListener("click", () => {
   alert("AINCLUSION clicked!");
 });
