@@ -7,12 +7,10 @@ const total = params.get("total");
 const scoreHeader = document.getElementById("score-header");
 
 if (score !== null && total !== null) {
-  scoreHeader.textContent = `You got ${score} out of ${total} points`;
+  scoreHeader.textContent = `You got ${score}/${total} points`;
 } else {
   scoreHeader.textContent = "No score found.";
 }
-
-document.getElementById("score-header").textContent = `You got ${score} points`;
 
 // Buttons (currently placeholders)
 document.getElementById("retry-btn").addEventListener("click", () => {
@@ -20,7 +18,7 @@ document.getElementById("retry-btn").addEventListener("click", () => {
 });
 
 document.getElementById("ainclusion-btn").addEventListener("click", () => {
-  alert("AINCLUSION clicked!");
+  window.open("https://ainclusion.com/", "_blank", "noopener,noreferrer");
 });
 
 // Hero-style dynamic background
