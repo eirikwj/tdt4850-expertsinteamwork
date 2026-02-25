@@ -1,0 +1,115 @@
+/* GLOBAL RESET + TYPOGRAPHY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND STYLING (keep photos visible) */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-image 1s ease-in-out;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* smooth overlay for readability */
+}
+
+.card {
+    position: relative; /* above overlay */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px); /* soft glass effect */
+    padding: 40px 60px;
+    border-radius: 16px;
+    max-width: 640px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.card h1 {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    color: #FFFFFF;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: #E5E5E5;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: none;
+    color: white;
+    margin: 8px;
+    text-decoration: none;
+}
+/* Primary */
+.btn.primary {
+    background: #AFCD91;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #70945e;
+    transform: translateY(-3px);
+}
+
+.btn.gradient {
+    background: linear-gradient(
+        90deg,
+        #A18872 0%,
+        #C3A582 20%,
+        #AFCD91 45%,
+        #AAD296 65%,
+        #C3D269 80%,
+        #FAC80A 100%
+    );
+}
+
+.btn.gradient:hover {
+    transform: translateY(-2px);
+        background: linear-gradient(
+        90deg,
+        #806b59 0%,
+        #978065 20%,
+        #81976b 45%,
+        #819f72 65%,
+        #939f50 80%,
+        #bb9709 100%
+    );
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+@media screen and (max-width: 768px) {
+    .card h1 {
+        font-size: 2rem;
+    }
+}
