@@ -19,7 +19,7 @@ const questions = [
         question: "Which LLM generated this unhappy family image?",
         image: "../images/unhappy_family_gemini.png",
         answers: ["Meta", "ChatGPT", "Grok"],
-        correctIndex: 0
+        correctIndex: 1
     },
     {
         question: "Which LLM generated this single parent image?",
