@@ -36,6 +36,10 @@ function loadQuestion() {
   nextBtn.disabled = true;
   const q = questions[currentQuestion];
 
+  document.body.style.backgroundImage = `url("${q.image}")`;
+  console.log("Backgroud image set to q.image: ", q.image);
+  console.log("New question")
+
   questionText.textContent = q.question;
   quizImage.src = q.image;
 
@@ -104,5 +108,6 @@ function showResults() {
   progressBar.style.width = "100%";
   window.location.href = `/src/pages/results.html?score=${score}&total=${questions.length}`;
 }
+
 
 loadQuestion();
