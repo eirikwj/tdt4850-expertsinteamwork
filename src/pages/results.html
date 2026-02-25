@@ -10,14 +10,17 @@
 
 <section class="hero" id="hero" style="background-image: url('../images/your-results-bg.jpg');">
     <div class="card">
-        <h1 id="score-header">You got 0 points</h1>
-        <p>Great job! Keep exploring responsible and inclusive use of AI.</p>
+        <div id="emoji-display" class="emoji-display"></div>
+        
+        <h1 id="score-header"></h1>
+        <p id="score-message"></p>
 
         <button id="retry-btn" class="btn primary">Retry Quiz</button>
         <button id="ainclusion-btn" class="btn gradient">AINCLUSION</button>
     </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script src="../js/results.js"></script>
 </body>
 </html>
