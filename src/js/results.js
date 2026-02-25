@@ -1,15 +1,56 @@
-// Get score from URL
-const params = new URLSearchParams(window.location.search);
-const score = params.get("score");
-const total = params.get("total");
-
-// Update score text
+// Get elements
 const scoreHeader = document.getElementById("score-header");
+const scoreMessage = document.getElementById("score-message");
 
-if (score !== null && total !== null) {
-  scoreHeader.textContent = `You got ${score}/${total} points`;
-} else {
-  scoreHeader.textContent = "No score found.";
+function runResultsLogic() {
+  const params = new URLSearchParams(window.location.search);
+  const score = parseInt(params.get("score"));
+  const total = parseInt(params.get("total"));
+
+  if (!isNaN(score) && !isNaN(total)) {
+    // Calculate percentage
+    const percentage = (score / total) * 100;
+    
+    // Update the Header
+    scoreHeader.textContent = `You got ${score}/${total} points`;
+
+    // Update Message based on percentage
+    if (percentage < 30) {
+      scoreMessage.textContent = "A good start! AI ethics is a deep topic, why not try again to sharpen your knowledge? Or explore AINCLUSION for more insights.";
+    } else if (percentage < 60) {
+      scoreMessage.textContent = "Not bad! You're getting the hang of inclusive AI. Check out AINCLUSION for more insights.";
+    } else if (percentage < 90) {
+      scoreMessage.textContent = "Great job! You have a solid grasp of responsible AI practices. Keep exploring and check out AINCLUSION for more insights.";
+    } else if (percentage <= 100) {
+      scoreMessage.textContent = "Outstanding! You're an AI Inclusion champion. Keep leading the way! You seem to be interested inclusive AI - check out AINCLUSION for more insights.";
+    } else {
+      scoreMessage.textContent = "Very clever! Your score exceeds the total possible points. We could use smart people like you in the field of AI ethics! Check out AINCLUSION for more insights.";
+    }
+
+    if (percentage >= 90) {
+      confetti({
+          particleCount: 250,
+          spread: 150,
+          origin: { y: 0.9 }
+      });
+
+      const display = document.getElementById("emoji-display");
+      display.textContent = "🥳";
+      display.classList.remove("fade-out");
+
+      setTimeout(() => {
+          display.classList.add("fade-out");
+          
+          setTimeout(() => {
+              display.textContent = "";
+          }, 500);
+      }, 1500);
+  }
+
+  } else {
+    scoreHeader.textContent = "No score found.";
+    scoreMessage.textContent = "Please complete the quiz to see your results.";
+  }
 }
 
 // Buttons (currently placeholders)
@@ -30,6 +71,17 @@ const backgrounds = [
   "../images/unhappy_family_gemini.png",
   "../images/paralympics_athlete_gemini.png",
 ];
+
+const img = new Image();
+img.src = backgrounds[0];
+
+img.onload = function() {
+  hero.style.backgroundImage = `url("${backgrounds[0]}")`;
+  
+  hero.classList.add("loaded");
+  
+  runResultsLogic();
+};
 
 let current = 0;
 

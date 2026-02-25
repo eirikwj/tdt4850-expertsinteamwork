@@ -16,5 +16,6 @@ function changeBackground() {
 }
 
 hero.style.backgroundImage = `url("${backgrounds[0]}")`;
+hero.classList.add("loaded");
 
 setInterval(changeBackground, 5000);
