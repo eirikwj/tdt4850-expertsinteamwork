@@ -91,8 +91,5 @@ function changeBackground() {
   hero.style.backgroundImage = `url("${backgrounds[current]}")`;
 }
 
-// Set initial background
-hero.style.backgroundImage = `url("${backgrounds[0]}")`;
-
 // Change every 5 seconds
 setInterval(changeBackground, 5000);
