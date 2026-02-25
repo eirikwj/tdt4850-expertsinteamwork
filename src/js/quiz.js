@@ -71,7 +71,10 @@ answerButtons.forEach((button, index) => {
 
 nextBtn.addEventListener("click", () => {
 
-    if (!answered) return;
+    if (!answered) {
+        alert("Please select an answer first!");
+        return;
+    }
 
     currentQuestion++;
 
