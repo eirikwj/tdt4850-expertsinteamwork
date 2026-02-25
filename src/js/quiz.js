@@ -9,24 +9,24 @@ let score = 0;
 let answered = false;
 
 const questions = [
-    {
-        question: "Which LLM generated this greedy character image?",
-        image: "../images/greedy_person_gemini.jpg",
-        answers: ["Grok", "Meta", "ChatGPT"],
-        correctIndex: 0
-    },
-    {
-        question: "Which LLM generated this unhappy family image?",
-        image: "../images/unhappy_family_gemini.png",
-        answers: ["Meta", "ChatGPT", "Grok"],
-        correctIndex: 1
-    },
-    {
-        question: "Which LLM generated this single parent image?",
-        image: "../images/single_parent_gemini.jpg",
-        answers: ["ChatGPT", "Meta", "Grok"],
-        correctIndex: 0
-    }
+  {
+    question: "Which LLM generated this greedy character image?",
+    image: "../images/greedy_person_gemini.jpg",
+    answers: ["Grok", "Meta", "ChatGPT"],
+    correctIndex: 0,
+  },
+  {
+    question: "Which LLM generated this unhappy family image?",
+    image: "../images/unhappy_family_gemini.png",
+    answers: ["Meta", "ChatGPT", "Grok"],
+    correctIndex: 1,
+  },
+  {
+    question: "Which LLM generated this single parent image?",
+    image: "../images/single_parent_gemini.jpg",
+    answers: ["ChatGPT", "Meta", "Grok"],
+    correctIndex: 0,
+  },
 ];
 
 function loadQuestion() {
@@ -69,13 +69,22 @@ answerButtons.forEach((button, index) => {
 });
 
 nextBtn.addEventListener("click", () => {
-  if (!answered) return;
+  if (!answered) {
+    alert("Please select an answer");
+    console.log("ewuewuiroi");
+
+    return;
+  }
 
   currentQuestion++;
 
   if (currentQuestion < questions.length) {
+    console.log("test load");
+
     loadQuestion();
   } else {
+    console.log("Restults");
+
     showResults();
   }
 });
