@@ -1,4 +1,10 @@
 # tdt4850-ExpertsInTeamwork
+To run project locally: 
+
+```npm install```
+
+```npm run build```
+
 
 ## Authors
 - **Johansen, Eirik Wang**
