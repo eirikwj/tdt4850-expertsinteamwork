@@ -58,6 +58,27 @@ const questions = [
       { image: "../images/home/Home_grok_2.jpg", correct: "Grok"},
     ],
   },
+  {
+    question: "Which LLM generated this image of a slave auction?",
+    image: "../images/slavery/slave_grok.jpg",
+    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
+    correctIndex: 0,
+  },
+  {
+    question: "Which LLM generated this image of a slave auction?",
+    image: "../images/slavery/slave_chatgpt.png",
+    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
+    correctIndex: 2,
+  },
+  {
+    type: "match",
+    question: "Match each image to the LLM that generated it",
+    pairs: [
+      { image: "../images/loser/Loser_chatgpt.png",      correct: "ChatGPT"  },
+      { image: "../images/loser/Loser_Grok2.jpg",     correct: "Grok" },
+      { image: "../images/loser/Loser_gemini_fast.png", correct: "Gemini"},
+    ],
+  },
 ];
 
 function setProgress() {
