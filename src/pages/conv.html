@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Pixel Guess Game</title>
+
+<style>
+body{
+    text-align:center;
+    font-family:sans-serif;
+}
+
+canvas{
+    border:2px solid black;
+    margin-bottom:20px;
+}
+
+.answer_btns{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="myCanvas"></canvas>
+
+<div class="answer_btns">
+<button data-index="0">Option 1</button>
+<button data-index="1">Option 2</button>
+<button data-index="2">Option 3</button>
+<button data-index="3">Option 4</button>
+</div>
+
+<script>
+
+const CANVAS_WIDTH = 500;
+const CANVAS_HEIGHT = 500;
+
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
+
+const img = new Image();
+
+function drawImageCover(ctx,img){
+
+    const scale = Math.max(
+        canvas.width/img.width,
+        canvas.height/img.height
+    );
+
+    const x = (canvas.width/2)-(img.width/2)*scale;
+    const y = (canvas.height/2)-(img.height/2)*scale;
+
+    ctx.drawImage(img,x,y,img.width*scale,img.height*scale);
+}
+
+function pixelateImage(img,blockSize){
+
+    const w = canvas.width/blockSize;
+    const h = canvas.height/blockSize;
+
+    ctx.imageSmoothingEnabled = false;
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    drawImageCover(ctx,img);
+
+    ctx.drawImage(canvas,0,0,w,h);
+    ctx.drawImage(canvas,0,0,w,h,0,0,canvas.width,canvas.height);
+}
+
+const getRndInteger=(min,max)=>
+    Math.floor(Math.random()*(max-min)+min);
+
+function shuffle(array){
+
+    for(let i=array.length-1;i>0;i--){
+
+        const j=Math.floor(Math.random()*(i+1));
+
+        [array[i],array[j]]=[array[j],array[i]];
+    }
+
+    return array;
+}
+
+class Instance{
+
+    buttons;
+    images;
+
+    imageQueue=[];
+    imageIndex=0;
+
+    curr_answer=0;
+    blur=100;
+
+    constructor(btns,imgs){
+
+        this.buttons=btns[0].children;
+        this.images=imgs;
+
+        this.imageQueue=shuffle([...imgs]);
+
+        for(let btn of this.buttons){
+            btn.addEventListener("click",(e)=>this.btn_click(e));
+        }
+    }
+
+    btn_click(e){
+
+        const index=Number(e.target.dataset.index);
+
+        if(index===this.curr_answer){
+
+            console.log("Correct!");
+            this.new_round();
+
+        }else{
+
+            console.log("Wrong!");
+
+            this.blur-=10;
+
+            if(this.blur<2) this.blur=2;
+
+            pixelateImage(img,this.blur);
+        }
+    }
+
+    getNextImage(){
+
+        if(this.imageIndex>=this.imageQueue.length){
+
+            this.imageQueue=shuffle([...this.images]);
+            this.imageIndex=0;
+        }
+
+        const image=this.imageQueue[this.imageIndex];
+        this.imageIndex++;
+
+        return image;
+    }
+
+    new_round(){
+
+        this.blur=100;
+
+        this.curr_answer=getRndInteger(0,4);
+
+        const nextImage=this.getNextImage();
+
+        img.src=nextImage;
+
+        img.onload=()=>{
+            pixelateImage(img,this.blur);
+        };
+
+        console.log("Correct button:",this.curr_answer+1);
+    }
+}
+
+function main(){
+
+    const btns=document.getElementsByClassName("answer_btns");
+
+    const images=[
+        "../images/1.jpg",
+        "../images/2.jpg",
+        "../images/3.jpg",
+        "../images/4.jpg"
+    ];
+
+    const game=new Instance(btns,images);
+
+    game.new_round();
+}
+
+main();
+
+</script>
+
+</body>
+</html>
