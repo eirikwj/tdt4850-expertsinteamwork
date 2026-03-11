@@ -181,3 +181,111 @@ body, html {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
+
+.llm-panel {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+}
+
+.llm-item {
+    position: relative;
+}
+
+.llm-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    color: white;
+}
+
+.llm-logo svg {
+    width: 22px;
+    height: 22px;
+}
+
+.llm-logo:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.llm-tooltip {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 210px;
+    background: rgba(18, 18, 18, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.llm-item:hover .llm-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.llm-tooltip-header {
+    padding: 10px 14px 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.chatgpt-header  { background: linear-gradient(135deg, #10a37f44, #10a37f22); border-bottom: 1px solid #10a37f55; }
+.grok-header     { background: linear-gradient(135deg, #ffffff22, #ffffff11); border-bottom: 1px solid #ffffff33; }
+.gemini-header   { background: linear-gradient(135deg, #4285F444, #9C27B022); border-bottom: 1px solid #4285F455; }
+
+.llm-tooltip-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.llm-tooltip-maker {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.llm-tooltip-facts {
+    list-style: none;
+    padding: 8px 14px 12px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.llm-tooltip-facts li {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.llm-tooltip-facts li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.4);
+}
