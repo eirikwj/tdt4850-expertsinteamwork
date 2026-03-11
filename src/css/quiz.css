@@ -35,6 +35,7 @@ body::before {
 .container {
     position: relative;
     width: 900px;
+    max-width: calc(100vw - 24px);
     padding: 50px;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.15);
@@ -45,10 +46,24 @@ body::before {
     color: white;
 }
 
+@media (max-width: 600px) {
+    .container {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+}
+
 h1 {
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
 }
 
 .progress-container {
@@ -90,6 +105,12 @@ h1 {
     margin-bottom: 40px;
 }
 
+@media (max-width: 600px) {
+    .content {
+        margin-bottom: 20px;
+    }
+}
+
 .image-box {
     width: 350px;
     height: 250px;
@@ -99,22 +120,31 @@ h1 {
     text-align-last: center;
 }
 
+@media (max-width: 600px) {
+    .image-box {
+        width: 100%;
+        height: 200px;
+    }
+}
+
 .image-box img {
     height: 100%;
 }
 
 .next-btn {
-    position: absolute;
-    right: 0;
-    padding: 12px 24px;
-    border-radius: 18px; /* same as .answer buttons */
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px 24px;
+    border-radius: 18px;
     border: 2px solid transparent;
     background: rgba(255,255,255,0.15);
     color: white;
     cursor: pointer;
+    font-size: 16px;
     transition: all 0.5s ease;
     backdrop-filter: blur(10px);
-    background-clip: padding-box; /* ensures border hover effect works nicely */
+    background-clip: padding-box;
     z-index: 0;
 }
 
@@ -122,8 +152,8 @@ h1 {
     content: '';
     position: absolute;
     inset: 0;
-    padding: 3px; /* thickness of gradient border */
-    border-radius: 18px; /* match initial border radius */
+    padding: 3px;
+    border-radius: 18px;
     background: linear-gradient(
         90deg,
         #A18872 0%,
@@ -143,7 +173,6 @@ h1 {
     z-index: -1;
 }
 
-
 .next-btn:hover::before {
     opacity: 1;
     transform: scale(1.1);
@@ -155,23 +184,32 @@ h1 {
 }
 
 .next-btn.unclickable {
-    cursor: not-allowed;           /* show disabled cursor */
-    opacity: 0.5;                  /* fade it to indicate inactive */
-    pointer-events: none;           /* prevent clicking */
-    transform: none;                /* remove hover translate */
-    background: rgba(255,255,255,0.1); /* slightly darker/faded glass look */
-    border: 2px solid rgba(255,255,255,0.2); /* static border */
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+    transform: none;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
 }
 
-/* Disable the gradient hover pseudo-element */
 .next-btn.unclickable::before {
     opacity: 0 !important;
     transform: none !important;
 }
 
+/* ─── Standard answers ─────────────────────────────────────────────────────── */
+
 .answers {
     display: flex;
     gap: 25px;
+}
+
+/* Stack vertically on mobile */
+@media (max-width: 600px) {
+    .answers {
+        flex-direction: column;
+        gap: 12px;
+    }
 }
 
 .answer {
@@ -187,6 +225,14 @@ h1 {
     backdrop-filter: blur(10px);
 }
 
+@media (max-width: 600px) {
+    .answer {
+        padding: 16px;
+        font-size: 16px;
+        border-radius: 14px;
+    }
+}
+
 .answer:hover {
     transform: translateY(-5px);
     background: rgba(255,255,255,0.25);
@@ -196,7 +242,6 @@ h1 {
     background: rgba(57,181,74,0.8);
     cursor: default;
 }
-
 
 .answer.chosen {
     border: solid 3px black;
@@ -216,18 +261,17 @@ h1 {
 
 .match-answers {
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Left column: draggable name chips */
+/* Names row: chips displayed horizontally below the images */
 .names-col {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 12px;
-    min-width: 130px;
 }
 
 .draggable-name {
@@ -253,6 +297,14 @@ h1 {
 .draggable-name.dragging {
     opacity: 0.4;
     cursor: grabbing;
+}
+
+/* Selected state for tap-to-assign on mobile */
+.draggable-name.selected {
+    background: rgba(255, 200, 10, 0.5);
+    border-color: rgba(255, 200, 10, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 0 14px rgba(255, 200, 10, 0.4);
 }
 
 /* Right column: image drop zones */
@@ -282,6 +334,13 @@ h1 {
 .drop-zone.drag-over {
     border-color: rgba(255,255,255,0.85);
     box-shadow: 0 0 18px rgba(255,255,255,0.35);
+}
+
+/* Highlight drop zone when a chip is selected (tap mode) */
+.drop-zone.tap-target {
+    border-color: rgba(255, 200, 10, 0.7);
+    box-shadow: 0 0 14px rgba(255, 200, 10, 0.3);
+    cursor: pointer;
 }
 
 /* Label overlay shown when a chip is dropped */
@@ -321,4 +380,20 @@ h1 {
 
 .drop-zone.wrong .drop-label {
     background: rgba(255,59,59,0.75);
+}
+
+/* ─── Mobile tweaks ───────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .draggable-name {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .images-col {
+        gap: 10px;
+    }
+
+    .drop-zone {
+        height: 120px;
+    }
 }
