@@ -10,28 +10,33 @@ function runResultsLogic() {
   if (!isNaN(score) && !isNaN(total)) {
     // Calculate percentage
     const percentage = (score / total) * 100;
-    
+
     // Update the Header
     scoreHeader.textContent = `You got ${score}/${total} points`;
 
     // Update Message based on percentage
     if (percentage < 30) {
-      scoreMessage.textContent = "A good start! AI ethics is a deep topic, why not try again to sharpen your knowledge? Or explore AINCLUSION for more insights.";
+      scoreMessage.textContent =
+        "A good start! AI ethics is a deep and complex topic. If you found this quiz interesting, we recommend exploring AINCLUSION to learn more.";
     } else if (percentage < 60) {
-      scoreMessage.textContent = "Not bad! You're getting the hang of inclusive AI. Check out AINCLUSION for more insights.";
+      scoreMessage.textContent =
+        "Not bad! You're starting to get the hang of inclusive AI. If you found this quiz interesting, we recommend exploring AINCLUSION to learn more.";
     } else if (percentage < 90) {
-      scoreMessage.textContent = "Great job! You have a solid grasp of responsible AI practices. Keep exploring and check out AINCLUSION for more insights.";
+      scoreMessage.textContent =
+        "Great job! You have a solid grasp of responsible AI practices. You seem to be interested inclusive AI - check out AINCLUSION for more insights.";
     } else if (percentage <= 100) {
-      scoreMessage.textContent = "Outstanding! You're an AI Inclusion champion. Keep leading the way! You seem to be interested inclusive AI - check out AINCLUSION for more insights.";
+      scoreMessage.textContent =
+        "Outstanding! You're an AI Inclusion champion. Keep leading the way! You seem to be interested inclusive AI - check out AINCLUSION for more insights.";
     } else {
-      scoreMessage.textContent = "Very clever! Your score exceeds the total possible points. We could use smart people like you in the field of AI ethics! Check out AINCLUSION for more insights.";
+      scoreMessage.textContent =
+        "Very clever! Your score exceeds the total possible points. We could use smart people like you in the field of AI ethics! Check out AINCLUSION for more insights.";
     }
 
     if (percentage >= 90) {
       confetti({
-          particleCount: 250,
-          spread: 150,
-          origin: { y: 0.9 }
+        particleCount: 250,
+        spread: 150,
+        origin: { y: 0.9 },
       });
 
       const display = document.getElementById("emoji-display");
@@ -39,14 +44,13 @@ function runResultsLogic() {
       display.classList.remove("fade-out");
 
       setTimeout(() => {
-          display.classList.add("fade-out");
-          
-          setTimeout(() => {
-              display.textContent = "";
-          }, 500);
-      }, 1500);
-  }
+        display.classList.add("fade-out");
 
+        setTimeout(() => {
+          display.textContent = "";
+        }, 500);
+      }, 1500);
+    }
   } else {
     scoreHeader.textContent = "No score found.";
     scoreMessage.textContent = "Please complete the quiz to see your results.";
@@ -75,11 +79,11 @@ const backgrounds = [
 const img = new Image();
 img.src = backgrounds[0];
 
-img.onload = function() {
+img.onload = function () {
   hero.style.backgroundImage = `url("${backgrounds[0]}")`;
-  
+
   hero.classList.add("loaded");
-  
+
   runResultsLogic();
 };
 
