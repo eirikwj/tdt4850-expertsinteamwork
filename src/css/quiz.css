@@ -176,7 +176,7 @@ h1 {
 
 .next-btn:hover::before {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.011);
 }
 
 .next-btn:hover {
