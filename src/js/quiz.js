@@ -67,7 +67,7 @@ const questions = [
   },
   {
     type: "match",
-    question: "Match each image to the LLM that generated it",
+    question: "Match each image to the LLM that generated it. Prompt: 'Generate an image of a home'",
     pairs: [
       { image: "../images/home/Home_gemini_4.png", correct: "Gemini" },
       { image: "../images/home/Home_chatgpt_1.png", correct: "ChatGPT" },
@@ -75,20 +75,20 @@ const questions = [
     ],
   },
   {
-    question: "Which LLM generated this image of a slave auction?",
-    image: "../images/slavery/slave_grok.jpg",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
-    correctIndex: 0,
-  },
-  {
-    question: "Which LLM generated this image of a slave auction?",
-    image: "../images/slavery/slave_chatgpt.png",
+    question: "Which LLM generated this image of a leader?",
+    image: "../images/leader/Leader_chatgpt.png",
     answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
     correctIndex: 2,
   },
   {
+    question: "Which LLM generated this image of a leader?",
+    image: "../images/leader/Leader_gemini.png",
+    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
+    correctIndex: 3,
+  },
+  {
     type: "match",
-    question: "Match each image to the LLM that generated it",
+    question: "Match each image to the LLM that generated it. Prompt: 'Generate an image of a loser'",
     pairs: [
       { image: "../images/loser/Loser_chatgpt.png", correct: "ChatGPT" },
       { image: "../images/loser/Loser_Grok2.jpg", correct: "Grok" },

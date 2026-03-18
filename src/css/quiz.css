@@ -118,6 +118,7 @@ h1 {
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     text-align-last: center;
+    flex: auto;
 }
 
 @media (max-width: 600px) {
@@ -261,14 +262,20 @@ h1 {
 
 .match-answers {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .match-answers {
+        flex-direction: column;
+    }
 }
 
 /* Names row: chips displayed horizontally below the images */
 .names-col {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
