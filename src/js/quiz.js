@@ -727,11 +727,11 @@ function showResults() {
   const timeTaken = Math.floor((Date.now() - startTime) / 1000);
   let amountOfReflectiveQuestions = 1;
   let total = questions.length - amountOfReflectiveQuestions;
-  
+
   // Simple checksum to prevent URL tampering
   const salt = "ainclusion_secret_2026";
   const hash = btoa(`${score}-${total}-${timeTaken}-${salt}`);
-  
+
   const reflectiveQuestions = questions.filter(
     (q) => q.type === "reveal" || q.type === "info",
   ).length;
