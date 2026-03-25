@@ -17,10 +17,22 @@
 
         <button id="retry-btn" class="btn primary">Retry Quiz</button>
         <button id="ainclusion-btn" class="btn gradient">AINCLUSION</button>
+        <button id="leaderboard-btn" class="btn primary">Show Leaderboard</button>
     </div>
 </section>
 
+<!-- Leaderboard Modal -->
+<div id="leaderboard-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button id="close-leaderboard" class="close-btn">&times;</button>
+        <h2>Top 10 Leaderboard</h2>
+        <ul id="leaderboard-list" class="leaderboard-list"></ul>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script src="../js/results.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script type="module" src="../js/results.js"></script>
 </body>
 </html>
