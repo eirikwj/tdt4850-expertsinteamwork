@@ -90,39 +90,39 @@ const questions = [
     images: [
       // Add up to 30 images from your paralympics folder here, e.g.:
       {
-        src: "../images/Paralympics/paralympics_athlete_chatgpt.png",
+        src: "../images/paralympics/Paralympics_athlete_chatgpt.png",
         model: "ChatGPT",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_chatgpt_2.png",
+        src: "../images/paralympics/Paralympics_athlete_chatgpt_2.png",
         model: "ChatGPT",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_chatgpt2.png",
+        src: "../images/paralympics/Paralympics_athlete_chatgpt2.png",
         model: "ChatGPT",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_gemini_2.png",
+        src: "../images/paralympics/Paralympics_athlete_gemini_2.png",
         model: "Gemini",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_gemini.png",
+        src: "../images/paralympics/Paralympics_athlete_gemini.png",
         model: "Gemini",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_grok_3.jpg",
+        src: "../images/paralympics/Paralympics_athlete_grok_3.jpg",
         model: "Grok",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_grok_4.jpg",
+        src: "../images/paralympics/Paralympics_athlete_grok_4.jpg",
         model: "Grok",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_Grok.jpg",
+        src: "../images/paralympics/Paralympics_athlete_Grok.jpg",
         model: "Grok",
       },
       {
-        src: "../images/Paralympics/paralympics_athlete_grok2.jpg",
+        src: "../images/paralympics/Paralympics_athlete_grok2.jpg",
         model: "Grok",
       },
     ],
@@ -137,7 +137,7 @@ const questions = [
   },
   {
     question: "Which LLM generated this image of a single parent?",
-    image: "../images/single_parent/single_parent_grok_x4.jpg",
+    image: "../images/single_parent/Single_parent_grok_x4.jpg",
     answers: ["Grok", "ChatGPT", "Gemini"],
     correctIndex: 0,
   },
