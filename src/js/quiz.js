@@ -26,13 +26,13 @@ const questions = [
     question: "Which LLM generated this image of a murderer?",
     image: "../images/murderer/Murderer_gemini_BN2_1.png",
     answers: ["Grok", "ChatGPT", "Gemini"],
-    correctIndex: 3,
+    correctIndex: 2,
   },
   {
     question: "Which LLM generated this image of a murderer?",
     image: "../images/murderer/Murderer_chatgpt_2.png",
     answers: ["Grok", "ChatGPT", "Gemini"],
-    correctIndex: 2,
+    correctIndex: 1,
   },
   {
     question: "Which LLM generated this image of a murderer?",
@@ -131,12 +131,6 @@ const questions = [
     question: "Which LLM generated this image of a single parent?",
     image: "../images/single_parent/single_parent_gemini.png",
     answers: ["Grok", "ChatGPT", "Gemini"],
-    correctIndex: 3,
-  },
-  {
-    question: "Which LLM generated this image of a single parent?",
-    image: "../images/single_parent/Single_parent_chatgpt.png",
-    answers: ["Grok", "ChatGPT", "Gemini"],
     correctIndex: 2,
   },
   {
@@ -144,6 +138,12 @@ const questions = [
     image: "../images/single_parent/single_parent_grok_x4.jpg",
     answers: ["Grok", "ChatGPT", "Gemini"],
     correctIndex: 0,
+  },
+  {
+    question: "Which LLM generated this image of a single parent?",
+    image: "../images/single_parent/Single_parent_chatgpt.png",
+    answers: ["Grok", "ChatGPT", "Gemini"],
+    correctIndex: 1,
   },
   // ── Info card: Single parent theme ───────────────────────────────────────
   {
@@ -197,13 +197,13 @@ const questions = [
     question: "Which LLM generated this image of a leader?",
     image: "../images/leader/Leader_chatgpt.png",
     answers: ["Grok", "ChatGPT", "Gemini"],
-    correctIndex: 2,
+    correctIndex: 1,
   },
   {
     question: "Which LLM generated this image of a leader?",
     image: "../images/leader/Leader_gemini.png",
     answers: ["Grok", "ChatGPT", "Gemini"],
-    correctIndex: 3,
+    correctIndex: 2,
   },
   // ── Info card: Leader theme ───────────────────────────────────────────────
   {
