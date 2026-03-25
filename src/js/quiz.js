@@ -61,7 +61,7 @@ const questions = [
   },
   {
     question: "Which LLM generated this image of a single parent?",
-    image: "../images/single_parent/single_parent_grok_x4.jpg",
+    image: "../images/single_parent/Single_parent_grok_x4.jpg",
     answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
     correctIndex: 0,
   },
