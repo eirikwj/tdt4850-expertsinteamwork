@@ -38,7 +38,6 @@
   grid-template-rows: repeat(5, 1fr);
   gap: 5px;
   width: 100%;
-  aspect-ratio: 6 / 5;
   border-radius: 14px;
   overflow: hidden;
 }
@@ -54,7 +53,7 @@
   overflow: hidden;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.08);
-  aspect-ratio: 1;
+  aspect-ratio: 0.8;
 }
 
 .info-grid-cell img {
