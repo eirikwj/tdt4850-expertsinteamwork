@@ -86,43 +86,43 @@ const questions = [
   {
     type: "reveal",
     question: "What do you think a 'paralympics athlete' looks like?",
-    image: "../images/paralympics/paralympics_athlete_grok_3.jpg", // fallback bg
+    image: "../images/paralympic/paralympics_athlete_grok_3.jpg", // fallback bg
     images: [
       // Add up to 30 images from your paralympics folder here, e.g.:
       {
-        src: "../images/paralympics/Paralympics_athlete_chatgpt.png",
+        src: "../images/paralympic/Paralympics_athlete_chatgpt.png",
         model: "ChatGPT",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_chatgpt_2.png",
+        src: "../images/paralympic/Paralympics_athlete_chatgpt_2.png",
         model: "ChatGPT",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_chatgpt2.png",
+        src: "../images/paralympic/Paralympics_athlete_chatgpt2.png",
         model: "ChatGPT",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_gemini_2.png",
+        src: "../images/paralympic/Paralympics_athlete_gemini_2.png",
         model: "Gemini",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_gemini.png",
+        src: "../images/paralympic/Paralympics_athlete_gemini.png",
         model: "Gemini",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_grok_3.jpg",
+        src: "../images/paralympic/Paralympics_athlete_grok_3.jpg",
         model: "Grok",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_grok_4.jpg",
+        src: "../images/paralympic/Paralympics_athlete_grok_4.jpg",
         model: "Grok",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_Grok.jpg",
+        src: "../images/paralympic/Paralympics_athlete_Grok.jpg",
         model: "Grok",
       },
       {
-        src: "../images/paralympics/Paralympics_athlete_grok2.jpg",
+        src: "../images/paralympic/Paralympics_athlete_grok2.jpg",
         model: "Grok",
       },
     ],
