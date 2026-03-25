@@ -25,46 +25,164 @@ const questions = [
   {
     question: "Which LLM generated this image of a murderer?",
     image: "../images/murderer/Murderer_gemini_BN2_1.png",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
-    correctIndex: 3,
+    answers: ["Grok", "ChatGPT", "Gemini"],
+    correctIndex: 2,
   },
   {
     question: "Which LLM generated this image of a murderer?",
     image: "../images/murderer/Murderer_chatgpt_2.png",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
-    correctIndex: 2,
+    answers: ["Grok", "ChatGPT", "Gemini"],
+    correctIndex: 1,
   },
   {
     question: "Which LLM generated this image of a murderer?",
     image: "../images/murderer/Murderer_grok_9.jpg",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
+    answers: ["Grok", "ChatGPT", "Gemini"],
     correctIndex: 0,
   },
+  // ── Info card: Murderer theme ─────────────────────────────────────────────
+  {
+    type: "info",
+    heading: "What does a 'murderer' look like?",
+    intro:
+      "Below is every picture we generated with the prompt 'What does a murderer look like?'. From our analysis, **29** of the 30 images show a **man**, despite the prompt never mentioning gender. Can you find any other similarities?",
+    images: [
+      { src: "../images/murderer/Murderer_chatgpt_2.png", model: "ChatGPT" },
+      { src: "../images/murderer/Murderer_chatgpt.png", model: "ChatGPT" },
+      { src: "../images/murderer/Murderer_gemini_2.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_3.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_4.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_5.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_BN2_1.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_2.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_3.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_4.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_5.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_6.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_7.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_8.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_9.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_10.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_11.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_gemini_NB2_12.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_Gemini.png", model: "Gemini" },
+      { src: "../images/murderer/Murderer_grok_3.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_grok_4.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_grok_5.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_grok_6.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_grok_7.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_grok_8.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_grok_9.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_grok_10.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_Grok.jpg", model: "Grok" },
+      { src: "../images/murderer/Murderer_Grok2.jpg", model: "Grok" },
+    ],
+    outro:
+      "In reality, women account for roughly **10% of homicide perpetrators** in the US, a figure consistent with FBI crime statistics from 2019 (FBI, 2019). <br /> <br /> Each AI model also has its own style when it comes to generating images that you will become familiar with during this quiz. Generally, Gemini (Nano Banana 2) generates the most realistic images. Grok tends to depict people of Asian descent more frequently than other models. ChatGPT has its own distinct style that is hard to describe, but easy to recognise once you start noticing the patterns.",
+  },
+  // ─────────────────────────────────────────────────────────────────────────
   {
     type: "reveal",
     question: "What do you think a 'paralympics athlete' looks like?",
-    image: "../images/paralympics/paralympics_athlete_grok_3.jpg",
+    image: "../images/paralympics/paralympics_athlete_grok_3.jpg", // fallback bg
+    images: [
+      // Add up to 30 images from your paralympics folder here, e.g.:
+      {
+        src: "../images/paralympics/paralympics_athlete_chatgpt.png",
+        model: "ChatGPT",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_chatgpt_2.png",
+        model: "ChatGPT",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_chatgpt2.png",
+        model: "ChatGPT",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_gemini_2.png",
+        model: "Gemini",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_gemini.png",
+        model: "Gemini",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_grok_3.jpg",
+        model: "Grok",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_grok_4.jpg",
+        model: "Grok",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_Grok.jpg",
+        model: "Grok",
+      },
+      {
+        src: "../images/paralympics/paralympics_athlete_grok2.jpg",
+        model: "Grok",
+      },
+    ],
     caption:
-      "This image was generated by Grok when asked to create an image of a paralympics athlete. Does it match what you imagined?",
+      "These images were generated by AI when asked to create a paralympics athlete. Do they match what you imagined?",
   },
   {
     question: "Which LLM generated this image of a single parent?",
     image: "../images/single_parent/single_parent_gemini.png",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
-    correctIndex: 3,
-  },
-  {
-    question: "Which LLM generated this image of a single parent?",
-    image: "../images/single_parent/Single_parent_chatgpt.png",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
+    answers: ["Grok", "ChatGPT", "Gemini"],
     correctIndex: 2,
   },
   {
     question: "Which LLM generated this image of a single parent?",
-    image: "../images/single_parent/Single_parent_grok_x4.jpg",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
+    image: "../images/single_parent/single_parent_grok_x4.jpg",
+    answers: ["Grok", "ChatGPT", "Gemini"],
     correctIndex: 0,
   },
+  {
+    question: "Which LLM generated this image of a single parent?",
+    image: "../images/single_parent/Single_parent_chatgpt.png",
+    answers: ["Grok", "ChatGPT", "Gemini"],
+    correctIndex: 1,
+  },
+  // ── Info card: Single parent theme ───────────────────────────────────────
+  {
+    type: "info",
+    heading: "What does a 'single parent' look like?",
+    intro:
+      "Underneath is every image we generated with the prompt 'Generate an image of a single parent'. What kind of similarities can you find?",
+    images: [
+      {
+        src: "../images/single_parent/Single_parent_chatgpt.png",
+        model: "ChatGPT",
+      },
+      {
+        src: "../images/single_parent/single_parent_gemini.png",
+        model: "Gemini",
+      },
+      {
+        src: "../images/single_parent/Single_parent_gemini_2.png",
+        model: "Gemini",
+      },
+      {
+        src: "../images/single_parent/Single_parent_grok_x1.jpg",
+        model: "Grok",
+      },
+      {
+        src: "../images/single_parent/Single_parent_grok_x2.jpg",
+        model: "Grok",
+      },
+      {
+        src: "../images/single_parent/Single_parent_grok_x3.jpg",
+        model: "Grok",
+      },
+      { src: "../images/single_parent/Single_parent_Grok.jpg", model: "Grok" },
+      { src: "../images/single_parent/Single_parent_Grok2.jpg", model: "Grok" },
+    ],
+    outro:
+      "In reality, approximately **80% of single-parent households** in the US are headed by mothers (Annie E. Casey Foundation, 2025)",
+  },
+  // ─────────────────────────────────────────────────────────────────────────
   {
     type: "match",
     question:
@@ -78,15 +196,34 @@ const questions = [
   {
     question: "Which LLM generated this image of a leader?",
     image: "../images/leader/Leader_chatgpt.png",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
-    correctIndex: 2,
+    answers: ["Grok", "ChatGPT", "Gemini"],
+    correctIndex: 1,
   },
   {
     question: "Which LLM generated this image of a leader?",
     image: "../images/leader/Leader_gemini.png",
-    answers: ["Grok", "Meta", "ChatGPT", "Gemini"],
-    correctIndex: 3,
+    answers: ["Grok", "ChatGPT", "Gemini"],
+    correctIndex: 2,
   },
+  // ── Info card: Leader theme ───────────────────────────────────────────────
+  {
+    type: "info",
+    heading: "What makes a 'leader'?",
+    intro:
+      "Underneath is every image we generated with the prompt 'Generate an image of a leader'. Are you suprised by the result? ",
+    images: [
+      { src: "../images/leader/Leader_chatgpt.png", model: "ChatGPT" },
+      { src: "../images/leader/workshop_grok.jpg", model: "Grok" },
+      { src: "../images/leader/workshop_gemini.png", model: "Gemini" },
+      { src: "../images/leader/workshop_chat.png", model: "ChatGPT" },
+      { src: "../images/leader/Leader_Grok.jpg", model: "Grok" },
+      { src: "../images/leader/Leader_Grok2.jpg", model: "Grok" },
+      { src: "../images/leader/Leader_gemini.png", model: "Gemini" },
+    ],
+    outro:
+      "In reality, women hold  **55 (11%) of Fortune 500 CEO positions** (Women Business Collaborative, 2025)",
+  },
+  // ─────────────────────────────────────────────────────────────────────────
   {
     type: "match",
     question:
@@ -117,16 +254,107 @@ function loadQuestion() {
   revealSubStep = 0;
   lockNext(true);
   const q = questions[currentQuestion];
-  questionText.textContent = q.question;
+  questionText.textContent = q.question ?? "";
   setProgress();
 
   if (q.type === "match") {
     loadMatchQuestion(q);
   } else if (q.type === "reveal") {
     loadRevealQuestion(q);
+  } else if (q.type === "info") {
+    loadInfoQuestion(q);
   } else {
     loadStandardQuestion(q);
   }
+}
+
+// ─── Image grid builder (shared by info + reveal) ────────────────────────────
+
+/**
+ * Builds a grid sized to fit all images automatically.
+ * Columns are capped at MAX_COLS (6). Rows expand as needed.
+ * Trailing empty cells pad the last row so the grid stays rectangular.
+ *
+ * Examples:
+ *   3 images  → 3×1   7 images → 4×2   10 images → 5×2
+ *  18 images  → 6×3  30 images → 6×5
+ */
+function buildImageGrid(images) {
+  const MAX_COLS = 6;
+  const count = images.length;
+  let cols = Math.min(count, MAX_COLS);
+  if (count <= 10) {
+    cols = Math.min(3, MAX_COLS);
+  }
+  const rows = Math.ceil(count / cols);
+  const total = cols * rows;
+
+  const grid = document.createElement("div");
+  grid.className = "info-grid";
+  grid.style.gridTemplateColumns = "repeat(" + cols + ", 1fr)";
+  grid.style.gridTemplateRows = "repeat(" + rows + ", 1fr)";
+
+  for (let i = 0; i < total; i++) {
+    const cell = document.createElement("div");
+    cell.className = "info-grid-cell";
+
+    if (i < count) {
+      const entry = images[i];
+      const src = typeof entry === "string" ? entry : entry.src;
+      const model = typeof entry === "string" ? null : entry.model;
+
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = model ? model + " image" : "Image " + (i + 1);
+      img.style.animationDelay = i * 0.025 + "s";
+      cell.appendChild(img);
+
+      if (model) {
+        const label = document.createElement("span");
+        label.className = "info-grid-label";
+        label.textContent = model;
+        cell.appendChild(label);
+      }
+    }
+    grid.appendChild(cell);
+  }
+  return grid;
+}
+
+// ─── Info question ────────────────────────────────────────────────────────────
+
+function loadInfoQuestion(q) {
+  imageBox.style.display = "none";
+  quizImage.style.display = "none";
+  const firstImg = q.images?.[0];
+  document.body.style.backgroundImage = firstImg
+    ? 'url("' + (typeof firstImg === "string" ? firstImg : firstImg.src) + '")'
+    : "none";
+
+  questionText.textContent = q.heading;
+  answersDiv.className = "answers info-answers";
+  answersDiv.innerHTML = "";
+
+  if (q.intro) {
+    const p = document.createElement("p");
+    p.className = "info-text";
+    p.innerHTML = q.intro.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    answersDiv.appendChild(p);
+  }
+
+  if (q.images?.length) {
+    answersDiv.appendChild(buildImageGrid(q.images));
+  }
+
+  if (q.outro) {
+    const p = document.createElement("p");
+    p.className = "info-text";
+    p.innerHTML = q.outro.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    answersDiv.appendChild(p);
+  }
+
+  lockNext(false);
+  requestAnimationFrame(() => answersDiv.classList.add("visible"));
 }
 
 // ─── Reveal question ──────────────────────────────────────────────────────────
@@ -162,29 +390,26 @@ function loadRevealQuestion(q) {
 }
 
 function showRevealImage(q) {
-  // Transition from the input phase to the image reveal phase
   answersDiv.innerHTML = "";
+  answersDiv.className = "answers info-answers";
 
-  // Image wrapper
-  const imgWrap = document.createElement("div");
-  imgWrap.className = "reveal-image-wrap";
+  const images = q.images ?? (q.image ? [{ src: q.image }] : []);
 
-  const img = document.createElement("img");
-  img.src = q.image;
-  img.alt = "Revealed image";
-  img.className = "reveal-img";
+  if (q.caption) {
+    const caption = document.createElement("p");
+    caption.className = "info-text";
+    caption.innerHTML = q.caption.replace(
+      /\*\*(.+?)\*\*/g,
+      "<strong>$1</strong>",
+    );
+    answersDiv.appendChild(caption);
+  }
 
-  const caption = document.createElement("p");
-  caption.className = "reveal-caption";
-  caption.textContent = q.caption;
+  if (images.length) {
+    answersDiv.appendChild(buildImageGrid(images));
+  }
 
-  imgWrap.appendChild(img);
-  imgWrap.appendChild(caption);
-  answersDiv.appendChild(imgWrap);
-
-  // Trigger fade-in on next paint
-  requestAnimationFrame(() => imgWrap.classList.add("visible"));
-
+  requestAnimationFrame(() => answersDiv.classList.add("visible"));
   lockNext(false);
 }
 
@@ -476,15 +701,13 @@ nextBtn.addEventListener("click", () => {
   // Handle the two-phase reveal question
   if (q.type === "reveal") {
     if (revealSubStep === 0) {
-      // Advance to the reveal phase
       revealSubStep = 1;
       showRevealImage(q);
       return;
     }
-    // Sub-step 1: fall through to advance the question
   }
 
-  if (!answered && q.type !== "reveal") {
+  if (!answered && q.type !== "reveal" && q.type !== "info") {
     alert("Please select an answer");
     return;
   }
@@ -499,9 +722,11 @@ nextBtn.addEventListener("click", () => {
 });
 
 function showResults() {
-  amountOfReflectiveQuestions = 1;
+  const reflectiveQuestions = questions.filter(
+    (q) => q.type === "reveal" || q.type === "info",
+  ).length;
   progressBar.style.width = "100%";
-  window.location.href = `/src/pages/results.html?score=${score}&total=${questions.length - amountOfReflectiveQuestions}`;
+  window.location.href = `../pages/results.html?score=${score}&total=${questions.length - reflectiveQuestions}`;
 }
 
 loadQuestion();
