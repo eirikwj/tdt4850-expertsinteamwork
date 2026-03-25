@@ -150,7 +150,7 @@ const questions = [
     type: "info",
     heading: "What does a 'single parent' look like?",
     intro:
-      "Underneath is every image we generated with the prompt 'Generate an image of a single parent'. What kind of similarities can you find? ",
+      "Underneath is every image we generated with the prompt 'Generate an image of a single parent'. What kind of similarities can you find?",
     images: [
       {
         src: "../images/single_parent/Single_parent_chatgpt.png",
@@ -210,14 +210,18 @@ const questions = [
     type: "info",
     heading: "What makes a 'leader'?",
     intro:
-      "All models defaulted to **middle-aged white men in suits**, typically photographed from a low angle to project authority. The prompt contained no mention of gender, age, or ethnicity.",
+      "Underneath is every image we generated with the prompt 'Generate an image of a leader'. Are you suprised by the result? ",
     images: [
-      // Fill with up to 30 paths from your leader folder.
-      "../images/leader/Leader_chatgpt.png",
-      "../images/leader/Leader_gemini.png",
+      { src: "../images/leader/Leader_chatgpt.png", model: "ChatGPT" },
+      { src: "../images/leader/workshop_grok.jpg", model: "Grok" },
+      { src: "../images/leader/workshop_gemini.png", model: "Gemini" },
+      { src: "../images/leader/workshop_chat.png", model: "ChatGPT" },
+      { src: "../images/leader/Leader_Grok.jpg", model: "Grok" },
+      { src: "../images/leader/Leader_Grok2.jpg", model: "Grok" },
+      { src: "../images/leader/Leader_gemini.png", model: "Gemini" },
     ],
     outro:
-      "Women represented **fewer than 10 %** of generated leader images — a stark contrast to the real world, where women lead countries, corporations, and movements globally. When AI tools are used in hiring, marketing, or education, these visual defaults can have concrete consequences for who gets seen as leadership material.",
+      "In reality, women hold  **55 (11%) of Fortune 500 CEO positions** (Women Business Collaborative, 2025)",
   },
   // ─────────────────────────────────────────────────────────────────────────
   {
