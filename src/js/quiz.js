@@ -12,6 +12,8 @@ let score = 0;
 let answered = false;
 let draggedEl = null;
 
+let startTime = Date.now();
+
 // Reveal question sub-step: 0 = text input, 1 = image revealed
 let revealSubStep = 0;
 
@@ -722,11 +724,21 @@ nextBtn.addEventListener("click", () => {
 });
 
 function showResults() {
+  const timeTaken = Math.floor((Date.now() - startTime) / 1000);
+  let amountOfReflectiveQuestions = 1;
+  let total = questions.length - amountOfReflectiveQuestions;
+  
+  // Simple checksum to prevent URL tampering
+  const salt = "ainclusion_secret_2026";
+  const hash = btoa(`${score}-${total}-${timeTaken}-${salt}`);
+  
   const reflectiveQuestions = questions.filter(
     (q) => q.type === "reveal" || q.type === "info",
   ).length;
   progressBar.style.width = "100%";
-  window.location.href = `../pages/results.html?score=${score}&total=${questions.length - reflectiveQuestions}`;
+
+  progressBar.style.width = "100%";
+  window.location.href = `../pages/results.html?score=${score}&total=${questions.length - reflectiveQuestions}&time=${timeTaken}&hash=${hash}`;
 }
 
 loadQuestion();
