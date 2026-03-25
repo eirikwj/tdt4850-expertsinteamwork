@@ -725,7 +725,7 @@ nextBtn.addEventListener("click", () => {
 
 function showResults() {
   const timeTaken = Math.floor((Date.now() - startTime) / 1000);
-  
+
   const reflectiveQuestions = questions.filter(
     (q) => q.type === "reveal" || q.type === "info",
   ).length;
