@@ -5,6 +5,10 @@ To run project locally:
 
 ```npm run build```
 
+```npx vite```
+
+Go to: 
+```http://localhost:5173/```
 
 ## Authors
 - **Johansen, Eirik Wang**
