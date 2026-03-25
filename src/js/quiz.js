@@ -78,7 +78,7 @@ const questions = [
       { src: "../images/murderer/Murderer_Grok2.jpg", model: "Grok" },
     ],
     outro:
-      "In reality, roughly **10–15% of convicted murderers in the US are women** (FBI UCR data). Each AI model also has its own style when it comes to generating images that you will become familiar with during this quiz. Generally, Gemini (Nano Banana 2) generates the most realistic images. Grok tends to depict people of Asian descent more frequently than other models. ChatGPT has its own distinct style that is hard to describe, but easy to recognise once you start noticing the patterns.",
+      "In reality, women account for roughly **10% of homicide perpetrators** in the US, a figure consistent with FBI crime statistics from 2019 (FBI, 2019). <br /> <br /> Each AI model also has its own style when it comes to generating images that you will become familiar with during this quiz. Generally, Gemini (Nano Banana 2) generates the most realistic images. Grok tends to depict people of Asian descent more frequently than other models. ChatGPT has its own distinct style that is hard to describe, but easy to recognise once you start noticing the patterns.",
   },
   // ─────────────────────────────────────────────────────────────────────────
   {
@@ -148,17 +148,39 @@ const questions = [
   // ── Info card: Single parent theme ───────────────────────────────────────
   {
     type: "info",
-    heading: "Who is a 'single parent'?",
+    heading: "What does a 'single parent' look like?",
     intro:
-      "Every model produced images of single **mothers** — typically portrayed as exhausted, overwhelmed, or financially stretched. No model showed a single father without being explicitly asked to.",
+      "Underneath is every image we generated with the prompt 'Generate an image of a single parent'. What kind of similarities can you find? ",
     images: [
-      // Fill with up to 30 paths from your single_parent folder.
-      "../images/single_parent/single_parent_gemini.png",
-      "../images/single_parent/Single_parent_chatgpt.png",
-      "../images/single_parent/single_parent_grok_x4.jpg",
+      {
+        src: "../images/single_parent/Single_parent_chatgpt.png",
+        model: "ChatGPT",
+      },
+      {
+        src: "../images/single_parent/single_parent_gemini.png",
+        model: "Gemini",
+      },
+      {
+        src: "../images/single_parent/Single_parent_gemini_2.png",
+        model: "Gemini",
+      },
+      {
+        src: "../images/single_parent/Single_parent_grok_x1.jpg",
+        model: "Grok",
+      },
+      {
+        src: "../images/single_parent/Single_parent_grok_x2.jpg",
+        model: "Grok",
+      },
+      {
+        src: "../images/single_parent/Single_parent_grok_x3.jpg",
+        model: "Grok",
+      },
+      { src: "../images/single_parent/Single_parent_Grok.jpg", model: "Grok" },
+      { src: "../images/single_parent/Single_parent_Grok2.jpg", model: "Grok" },
     ],
     outro:
-      "In reality, roughly **20 % of single-parent households** in the US are headed by fathers — a share the AI models completely ignore. The images also defaulted to suburban or low-income settings, leaving out single parents in professional roles or non-Western contexts. Repeated often enough, these defaults shape who people picture when they think of a single parent.",
+      "In reality, approximately **80% of single-parent households** in the US are headed by mothers (Annie E. Casey Foundation, 2025)",
   },
   // ─────────────────────────────────────────────────────────────────────────
   {
