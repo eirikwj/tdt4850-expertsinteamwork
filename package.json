@@ -4,6 +4,8 @@
     "vite": "^8.0.2"
   },
   "scripts": {
-    "build": "javascript-obfuscator src/js/quiz.js --output src/js/quiz.obf.js"
+    "dev": "vite",
+    "obf": "javascript-obfuscator src/js/quiz.js --output src/js/quiz.obf.js",
+    "build": "vite build"
   }
 }

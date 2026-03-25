@@ -725,20 +725,18 @@ nextBtn.addEventListener("click", () => {
 
 function showResults() {
   const timeTaken = Math.floor((Date.now() - startTime) / 1000);
-  let amountOfReflectiveQuestions = 1;
-  let total = questions.length - amountOfReflectiveQuestions;
-  
-  // Simple checksum to prevent URL tampering
-  const salt = "ainclusion_secret_2026";
-  const hash = btoa(`${score}-${total}-${timeTaken}-${salt}`);
   
   const reflectiveQuestions = questions.filter(
     (q) => q.type === "reveal" || q.type === "info",
   ).length;
   progressBar.style.width = "100%";
 
-  progressBar.style.width = "100%";
-  window.location.href = `../pages/results.html?score=${score}&total=${questions.length - reflectiveQuestions}&time=${timeTaken}&hash=${hash}`;
+  const total = questions.length - reflectiveQuestions;
+
+  const salt = "ainclusion_secret_2026";
+  const hash = btoa(`${score}-${total}-${timeTaken}-${salt}`);
+
+  window.location.href = `../pages/results.html?score=${score}&total=${total}&time=${timeTaken}&hash=${hash}`;
 }
 
 loadQuestion();
