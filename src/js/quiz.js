@@ -726,7 +726,7 @@ function showResults() {
     (q) => q.type === "reveal" || q.type === "info",
   ).length;
   progressBar.style.width = "100%";
-  window.location.href = `/src/pages/results.html?score=${score}&total=${questions.length - reflectiveQuestions}`;
+  window.location.href = `../pages/results.html?score=${score}&total=${questions.length - reflectiveQuestions}`;
 }
 
 loadQuestion();
